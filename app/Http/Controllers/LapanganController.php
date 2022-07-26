@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lapangan;
 
 class LapanganController extends Controller
 {
@@ -18,7 +19,9 @@ class LapanganController extends Controller
 
     public function index()
     {
-        //
+        $nomor = 1;
+        $lapangan = Lapangan::all();
+        return view('page.lapangan.index',compact('nomor','lapangan'));
     }
 
     /**
@@ -28,7 +31,7 @@ class LapanganController extends Controller
      */
     public function create()
     {
-        //
+        return view('page.lapangan.form');
     }
 
     /**
@@ -39,7 +42,12 @@ class LapanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lapangan = new Lapangan;
+
+        $lapangan->lapangan = $request->lapangan;
+        $lapangan->save();
+
+        return redirect('/lapangan');
     }
 
     /**
@@ -61,7 +69,8 @@ class LapanganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lapangan = Lapangan::find($id);
+        return view('page.lapangan.edit',compact('lapangan'));
     }
 
     /**
@@ -73,7 +82,12 @@ class LapanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lapangan = Lapangan::find($id);
+
+        $lapangan->lapangan = $request->lapangan;
+        $lapangan->save();
+
+        return redirect('/lapangan');
     }
 
     /**
@@ -84,6 +98,8 @@ class LapanganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lapangan = Lapangan::find($id);
+        $lapangan->delete();
+        return redirect('/lapangan');
     }
 }

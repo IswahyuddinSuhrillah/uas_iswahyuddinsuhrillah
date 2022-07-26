@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->date('tanggal');
-            $table->bigInteger('lapangan_id');
+            $table->bigInteger('lapangans_id');
             $table->integer('nohp');
             $table->integer('uangmuka');
             $table->integer('sisabayar');

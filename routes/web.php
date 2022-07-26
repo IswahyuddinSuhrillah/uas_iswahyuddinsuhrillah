@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\SewaController;
 use App\Http\Controllers\LapanganController;
 
 /*

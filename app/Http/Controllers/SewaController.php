@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sewa;
+use App\Models\Lapangan;
 
 class SewaController extends Controller
 {
@@ -18,7 +20,9 @@ class SewaController extends Controller
 
     public function index()
     {
-        //
+        $nomor = 1;
+        $sewa = Sewa::all();
+        return view('page.sewa.index', compact('sewa','nomor'));
     }
 
     /**
@@ -28,7 +32,8 @@ class SewaController extends Controller
      */
     public function create()
     {
-        //
+        $lapangan = Lapangan::all();
+        return view('page.sewa.form',compact('lapangan'));
     }
 
     /**
@@ -39,7 +44,18 @@ class SewaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sewa = new Sewa;
+
+        $sewa->nama = $request->nama;
+        $sewa->tanggal = $request->tanggal;
+        $sewa->lapangans_id = $request->lapangan;
+        $sewa->nohp = $request->nohp;
+        $sewa->uangmuka = $request->uangmuka;
+        $sewa->sisabayar = $request->sisabayar;
+        $sewa->totalbayar = $request->totalbayar;
+        $sewa->save();
+
+        return redirect('/sewa');
     }
 
     /**
@@ -61,7 +77,9 @@ class SewaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sewa  = Sewa::find($id);
+        $lapangan = Lapangan::all();
+        return view('page.sewa.edit',compact('sewa','lapangan'));
     }
 
     /**
@@ -73,7 +91,18 @@ class SewaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sewa = Sewa::find($id);
+
+        $sewa->nama = $request->nama;
+        $sewa->tanggal = $request->tanggal;
+        $sewa->lapangans_id = $request->lapangan;
+        $sewa->nohp = $request->nohp;
+        $sewa->uangmuka = $request->uangmuka;
+        $sewa->sisabayar = $request->sisabayar;
+        $sewa->totalbayar = $request->totalbayar;
+        $sewa->save();
+
+        return redirect('/sewa');
     }
 
     /**
@@ -84,6 +113,8 @@ class SewaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sewa = Sewa::find($id);
+        $sewa->delete();
+        return redirect('/sewa');
     }
 }

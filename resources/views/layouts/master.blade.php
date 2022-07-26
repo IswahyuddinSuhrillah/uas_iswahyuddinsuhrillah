@@ -64,7 +64,7 @@
             </li>
             <li class="nav-header">DATA MASTER</li>
             <li class="nav-item">
-                <a href="/" class="nav-link">
+                <a href="/sewa" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                     Data Sewa
@@ -72,7 +72,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link">
+                <a href="/lapangan" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                     Data Lapangan
