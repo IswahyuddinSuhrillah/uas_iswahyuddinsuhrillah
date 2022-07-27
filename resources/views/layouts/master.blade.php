@@ -71,6 +71,7 @@
                 </p>
                 </a>
             </li>
+            @can('create',App\Lapangan::class)
             <li class="nav-item">
                 <a href="/lapangan" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
@@ -79,6 +80,7 @@
                 </p>
                 </a>
             </li>
+            @endcan
             <li class="nav-header">PROFILE</li>
             <li class="nav-item">
                 <a href="#" class="nav-link">

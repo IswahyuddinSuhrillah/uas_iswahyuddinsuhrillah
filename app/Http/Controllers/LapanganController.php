@@ -19,6 +19,7 @@ class LapanganController extends Controller
 
     public function index()
     {
+        $this->authorize('create',Lapangan::class);
         $nomor = 1;
         $lapangan = Lapangan::all();
         return view('page.lapangan.index',compact('nomor','lapangan'));

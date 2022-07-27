@@ -86,9 +86,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-      
-
       <a href="/login" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
