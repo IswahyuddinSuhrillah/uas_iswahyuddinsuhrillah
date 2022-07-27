@@ -50,32 +50,32 @@
                         <td>{{$nomor++}}</td>
                         <td>{{$item->lapangan}}</td>
                         <td>
-                            <a href="/lapangan/edit/{{$item->id}}" class="btn btn-warning btn-sm">Edit</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">
-                                Hapus
-                              </button>
-
-                            <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">Peringatan</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      Yakin data lapangan <b>{{$item->lapangan}}</b> ingin dihapus?
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                      <form method="post" action="/lapangan/{{$item->id}}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-primary">Hapus</button>
-                                      </form>
-                                    </div>
-                                  </div>
+                          <a href="/lapangan/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a>
+                          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#a{{$item->id}}">
+                            <i class="fa fa-trash-alt"></i>
+                          </button>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="a{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Peringatan</h5>
+                                </div>
+                                <div class="modal-body">
+                                  Yakin ingin menghapus lapangan <b>{{$item->kode}}-{{$item->lapangan}}</b> ?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                  <form method="POST" action="/lapangan/{{$item->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                  </form>
                                 </div>
                               </div>
+                            </div>
+                          </div>
                         </td>
                     </tr>
                     @empty

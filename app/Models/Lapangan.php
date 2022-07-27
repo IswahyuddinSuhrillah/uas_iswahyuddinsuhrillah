@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lapangan extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    public function sewas(){
+        return $this->belongTo(Sewa::class);
+    }
 }
